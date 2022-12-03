@@ -18,13 +18,6 @@ object Solution {
   private def solutionPrint(string: String) =
     zio.Console.printLine(s"${Console.GREEN}$string${Console.RESET}")
 
-  def openInputFile =
-    for {
-      args <- getArgs
-      filename <- ZIO
-        .fromOption(args.headOption)
-        .orElseFail(new RuntimeException("Filename is required as input"))
-
-      result = ZStream.fromFileName(filename).via(ZPipeline.utf8Decode).via(ZPipeline.splitLines)
-    } yield result
+  def openInputFile(filename: String) =
+    ZStream.fromFileName(filename).via(ZPipeline.utf8Decode).via(ZPipeline.splitLines)
 }
