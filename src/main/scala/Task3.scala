@@ -69,7 +69,7 @@ object Task3 {
     for {
       result1 <- part1.processLines(input)
       result2 <- part2.processLines(input)
-      _ <- Solution.print(2, List(s"Final score 1: $result1", s"Final score 2: $result2"))
+      _ <- Solution.print(3, List(s"Final score 1: $result1", s"Final score 2: $result2"))
 
     } yield ()
 }
