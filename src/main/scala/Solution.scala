@@ -7,7 +7,7 @@ object Solution {
   def print(number: Int, solutions: List[String]) =
     for {
       _ <- accentPrint("=" * 30)
-      _ <- accentPrint(s"Task $number Solution")
+      _ <- accentPrint(s"🎄 Task $number Solution 🎄")
       _ <- accentPrint("=" * 30)
       _ <- ZIO.foreach(solutions)(solutionPrint)
     } yield ()
