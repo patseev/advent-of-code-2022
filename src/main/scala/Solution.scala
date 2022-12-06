@@ -1,3 +1,5 @@
+import java.nio.charset.Charset
+
 import MyApp.getArgs
 import zio.ZIO
 import zio.stream.ZPipeline
@@ -20,4 +22,7 @@ object Solution {
 
   def openInputFile(filename: String) =
     ZStream.fromFileName(filename).via(ZPipeline.utf8Decode).via(ZPipeline.splitLines)
+
+  def openInputFileAsChars(filename: String) =
+    ZStream.fromFileName(filename).via(ZPipeline.decodeCharsWith(Charset.defaultCharset()))
 }
