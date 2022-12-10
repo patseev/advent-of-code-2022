@@ -8,9 +8,9 @@ import zio.stream.ZStream
 object Solution {
   def print(number: Int, solutions: List[String]) =
     for {
-      _ <- accentPrint("=" * 30)
+      _ <- accentPrint("=" * 21)
       _ <- accentPrint(s"🎄 Task $number Solution 🎄")
-      _ <- accentPrint("=" * 30)
+      _ <- accentPrint("=" * 21)
       _ <- ZIO.foreach(solutions)(solutionPrint)
     } yield ()
 
